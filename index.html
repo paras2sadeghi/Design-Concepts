@@ -1,0 +1,153 @@
+<title>Portfolio — Product Design</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Bricolage+Grotesque:wght@300;400;500;600;700&display=swap');
+
+:root{
+  --bg:#0a0a0d;
+  --ink:#f2f1f4;
+  --ink-dim:#9c99a6;
+  --glass:rgba(255,255,255,0.05);
+  --glass-border:rgba(255,255,255,0.12);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{
+  background:
+    radial-gradient(ellipse 1000px 700px at 20% -10%, rgba(139,124,255,0.14), transparent 60%),
+    radial-gradient(ellipse 900px 700px at 90% 10%, rgba(255,138,61,0.10), transparent 55%),
+    radial-gradient(ellipse 900px 700px at 50% 105%, rgba(79,224,201,0.08), transparent 60%),
+    var(--bg);
+  color:var(--ink);
+  font-family:'Bricolage Grotesque', sans-serif;
+  overflow-x:hidden;
+}
+.wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+body::before{
+  content:""; position:fixed; inset:0; z-index:2; pointer-events:none; opacity:0.03;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+nav{position:sticky; top:0; z-index:10; backdrop-filter:blur(16px); background:rgba(10,10,13,0.55); border-bottom:1px solid var(--glass-border);}
+nav .wrap{display:flex; align-items:center; justify-content:space-between; height:72px;}
+.brand{font-family:'Fraunces', serif; font-weight:600; font-size:1.25rem;}
+.navlinks{display:flex; gap:28px; font-size:0.85rem; color:var(--ink-dim);}
+.navlinks a{color:var(--ink-dim); text-decoration:none;}
+.navlinks a:hover{color:var(--ink);}
+
+header.hero{padding:120px 0 70px; position:relative; z-index:1;}
+.eyebrow{font-size:0.78rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-dim); margin-bottom:24px;}
+h1.title{
+  font-family:'Fraunces', serif; font-weight:500; font-style:italic;
+  font-size:clamp(2.6rem, 6.5vw, 5.4rem); line-height:1.02; letter-spacing:-0.01em; max-width:900px;
+}
+.sub{margin-top:28px; font-size:1.2rem; color:var(--ink-dim); max-width:600px; line-height:1.65; font-weight:300;}
+
+section#work{padding:40px 0 100px; position:relative; z-index:1;}
+.grid{display:grid; grid-template-columns:repeat(2,1fr); gap:28px;}
+.card{
+  display:block; text-decoration:none; color:inherit;
+  border-radius:24px; overflow:hidden; position:relative; height:340px;
+  border:1px solid var(--glass-border);
+  transition:transform 0.35s ease, box-shadow 0.35s ease;
+}
+.card:hover{transform:translateY(-6px); box-shadow:0 30px 60px -20px rgba(0,0,0,0.5);}
+.card-bg{position:absolute; inset:0; z-index:0;}
+.card-content{position:relative; z-index:1; height:100%; padding:32px; display:flex; flex-direction:column; justify-content:flex-end;}
+.card-tag{font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.75); margin-bottom:10px;}
+.card h3{font-family:'Fraunces', serif; font-weight:500; font-style:italic; font-size:1.9rem; color:#fff; line-height:1.1;}
+.card p{color:rgba(255,255,255,0.75); font-size:0.9rem; margin-top:10px; font-weight:300; max-width:380px; line-height:1.5;}
+.card-arrow{
+  position:absolute; top:28px; right:28px; width:40px; height:40px; border-radius:50%;
+  background:rgba(255,255,255,0.15); backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center;
+  color:#fff; font-size:1.1rem; border:1px solid rgba(255,255,255,0.25);
+}
+
+.bg-transit{background:radial-gradient(ellipse 500px 400px at 20% 20%, rgba(127,255,176,0.5), transparent 60%), radial-gradient(ellipse 400px 400px at 90% 90%, rgba(255,180,84,0.35), transparent 55%), linear-gradient(160deg,#0e1a17,#0b1210);}
+.bg-huddle{background:radial-gradient(ellipse 500px 400px at 15% 15%, rgba(139,124,255,0.5), transparent 60%), radial-gradient(ellipse 400px 400px at 90% 90%, rgba(79,209,255,0.35), transparent 55%), linear-gradient(160deg,#12162a,#0a0d16);}
+.bg-bloom{background:radial-gradient(ellipse 500px 400px at 15% 15%, rgba(255,179,198,0.55), transparent 60%), radial-gradient(ellipse 400px 400px at 90% 90%, rgba(201,162,255,0.4), transparent 55%), linear-gradient(160deg,#2c1c33,#180f1c);}
+.bg-wave{background:radial-gradient(ellipse 500px 400px at 15% 15%, rgba(255,138,61,0.55), transparent 60%), radial-gradient(ellipse 400px 400px at 90% 90%, rgba(194,69,107,0.4), transparent 55%), linear-gradient(160deg,#2c1a10,#170f0a);}
+.bg-drift{background:radial-gradient(ellipse 500px 400px at 15% 15%, rgba(79,224,201,0.5), transparent 60%), radial-gradient(ellipse 400px 400px at 90% 90%, rgba(91,141,255,0.4), transparent 55%), linear-gradient(160deg,#16233a,#070d16);}
+
+.card.wide{grid-column:span 2;}
+
+footer{padding:50px 0 80px; text-align:center; color:var(--ink-dim); font-size:0.85rem; font-weight:300; position:relative; z-index:1;}
+
+@media(max-width:800px){
+  .grid{grid-template-columns:1fr;}
+  .card.wide{grid-column:span 1;}
+  .navlinks{display:none;}
+}
+</style>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Product Design</div>
+    <div class="navlinks"><a href="#work">Work</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Selected work · 2026</div>
+    <h1 class="title">Five products,<br>five different problems.</h1>
+    <p class="sub">A set of self-directed case studies spanning mobile, wellness, and B2B design — each one built to explore a specific human problem, end to end.</p>
+  </div>
+</header>
+
+<section id="work">
+  <div class="wrap">
+    <div class="grid">
+      <a class="card wide" href="https://claude.ai/code/artifact/7c20ab0c-1da4-40b5-9d98-62594b95bbb6" target="_blank">
+        <div class="card-bg bg-transit"></div>
+        <div class="card-arrow">↗</div>
+        <div class="card-content">
+          <div class="card-tag">Mobile · Everyday utility</div>
+          <h3>Transit</h3>
+          <p>Rebuilding trust in real-time ETAs through honest uncertainty instead of false precision.</p>
+        </div>
+      </a>
+
+      <a class="card" href="https://claude.ai/code/artifact/f2b0500a-0f4a-4546-af54-e56f9bd46937" target="_blank">
+        <div class="card-bg bg-huddle"></div>
+        <div class="card-arrow">↗</div>
+        <div class="card-content">
+          <div class="card-tag">B2B SaaS</div>
+          <h3>Huddle</h3>
+          <p>Async video feedback that replaces the reflex to schedule a call.</p>
+        </div>
+      </a>
+
+      <a class="card" href="https://claude.ai/code/artifact/3b287b16-037f-489c-9ee4-936498f2a75d" target="_blank">
+        <div class="card-bg bg-bloom"></div>
+        <div class="card-arrow">↗</div>
+        <div class="card-content">
+          <div class="card-tag">Wellbeing · Mobile</div>
+          <h3>Bloom</h3>
+          <p>A team check-in app designed so honesty feels safe, not risky.</p>
+        </div>
+      </a>
+
+      <a class="card" href="https://claude.ai/code/artifact/5cb68133-5d05-47f0-8a29-b3633267bd91" target="_blank">
+        <div class="card-bg bg-wave"></div>
+        <div class="card-arrow">↗</div>
+        <div class="card-content">
+          <div class="card-tag">Consumer · Mobile</div>
+          <h3>Wavelength</h3>
+          <p>A mood-first music player built to cut decision fatigue.</p>
+        </div>
+      </a>
+
+      <a class="card" href="https://claude.ai/code/artifact/1f8a4049-dfdb-4cf1-abce-216b9ec794a5" target="_blank">
+        <div class="card-bg bg-drift"></div>
+        <div class="card-arrow">↗</div>
+        <div class="card-content">
+          <div class="card-tag">Game UX · Mobile</div>
+          <h3>Drift Atlas</h3>
+          <p>A cozy exploration game with no anxiety-driven mechanics.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Self-directed concept case studies · designed to demonstrate range across product, wellness, and B2B design.</div>
+</footer>
